@@ -1,6 +1,7 @@
 import {
   Button,
   Container,
+  Content,
   Header,
   Icon,
   Input,
@@ -55,6 +56,7 @@ const HomeScreen = () => {
           flexDirection: "row",
           alignItems: "center",
           paddingLeft: 10,
+          zIndex: 1,
         }}
       >
         <TouchableOpacity>
@@ -88,6 +90,29 @@ const HomeScreen = () => {
           </Item>
         </View>
       </View>
+      <Content
+        style={{
+          backgroundColor: appTheme.appColors.lightColor,
+          marginTop: 72,
+        }}
+      >
+        <View
+          style={{
+            height: 50,
+            backgroundColor: appTheme.appColors.whiteColor,
+            flexDirection: "row",
+            paddingHorizontal: 5,
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <Text>Hello, John Doe</Text>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Text>Your Account</Text>
+            <Icon name="arrow-forward" style={{ fontSize: 18 }} />
+          </View>
+        </View>
+      </Content>
     </Container>
   );
 };
