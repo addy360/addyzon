@@ -1,5 +1,7 @@
 import {
   Button,
+  Card,
+  CardItem,
   Container,
   Content,
   Header,
@@ -18,8 +20,10 @@ import { SwiperFlatList } from "react-native-swiper-flatlist";
 import { appTheme } from "../constants";
 import SwiperItem from "../components/Home/SwiperItem";
 import { getImages } from "../testData";
+import RecommendedItem from "../components/Home/RecommendedItem";
 
 const HomeScreen = () => {
+  const images = getImages();
   return (
     <Container>
       <Header
@@ -123,10 +127,24 @@ const HomeScreen = () => {
           index={0}
           showPagination
         >
-          {getImages().map((url, i) => (
+          {images.map((url, i) => (
             <SwiperItem source={require("../assets/1.jpg")} key={i} />
           ))}
         </SwiperFlatList>
+        <Card>
+          <CardItem
+            header
+            style={{
+              borderBottomWidth: 1,
+              borderBottomColor: appTheme.appColors.secondary,
+            }}
+          >
+            <Text>Your recommendations</Text>
+          </CardItem>
+          {images.map((url, i) => (
+            <RecommendedItem key={i} />
+          ))}
+        </Card>
       </Content>
     </Container>
   );

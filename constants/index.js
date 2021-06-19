@@ -7,6 +7,7 @@ export const appTheme = {
     whiteColor: "#f4f4f4",
     lightColor: "#d5d5d6",
     darkColor: "#333",
+    secondary: "orange",
   },
   dimenstions: Dimensions.get("window"),
 };
