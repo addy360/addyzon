@@ -1,3 +1,5 @@
+import { Dimensions } from "react-native";
+
 export const appTheme = {
   appColors: {
     primaryColor: "#3a455c",
@@ -6,4 +8,5 @@ export const appTheme = {
     lightColor: "#d5d5d6",
     darkColor: "#333",
   },
+  dimenstions: Dimensions.get("window"),
 };

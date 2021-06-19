@@ -11,9 +11,13 @@ import {
   Text,
 } from "native-base";
 import React from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Image, TouchableOpacity, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { SwiperFlatList } from "react-native-swiper-flatlist";
+
 import { appTheme } from "../constants";
+import SwiperItem from "../components/Home/SwiperItem";
+import { getImages } from "../testData";
 
 const HomeScreen = () => {
   return (
@@ -112,6 +116,17 @@ const HomeScreen = () => {
             <Icon name="arrow-forward" style={{ fontSize: 18 }} />
           </View>
         </View>
+        <SwiperFlatList
+          autoplay
+          autoplayDelay={2}
+          autoplayLoop
+          index={0}
+          showPagination
+        >
+          {getImages().map((url, i) => (
+            <SwiperItem source={require("../assets/1.jpg")} key={i} />
+          ))}
+        </SwiperFlatList>
       </Content>
     </Container>
   );
