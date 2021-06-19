@@ -16,13 +16,14 @@ import React from "react";
 import { StyleSheet, Image, TouchableOpacity, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { SwiperFlatList } from "react-native-swiper-flatlist";
+import { DrawerActions } from "@react-navigation/native";
 
 import { appTheme } from "../constants";
 import SwiperItem from "../components/Home/SwiperItem";
 import { getImages } from "../testData";
 import RecommendedItem from "../components/Home/RecommendedItem";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const images = getImages();
   return (
     <Container>
@@ -36,10 +37,14 @@ const HomeScreen = () => {
         }}
       >
         <Left style={{ flexDirection: "row" }}>
-          <Icon
-            name="md-menu"
-            style={{ color: appTheme.appColors.lightColor, marginRight: 10 }}
-          />
+          <TouchableOpacity
+            onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+          >
+            <Icon
+              name="md-menu"
+              style={{ color: appTheme.appColors.lightColor, marginRight: 10 }}
+            />
+          </TouchableOpacity>
           <AntDesign
             name="amazon"
             size={24}
